@@ -1,50 +1,53 @@
- {
+  {
     "version": 1,
     "updated_at": 1733600000,
     "foods": [
       {
-      "id:": "com:1"
-      "name": "Änglamark Peanøttsmør Crunchy",
-      "brand": "ÄNGLAMARK",
-      "ean": "7340011473039",
-      "values": {
-        "energy_kcal": 612,
-        "protein_g": 30,
-        "carbs_g": 9.5,
-        "fat_g": 49,
-        "sugars_g": 5.7,
-        "saturated_fat_g": 12,
-        "fiber_g": 6.6,
-        "salt_g": 0.6,
-        "omega3_g": 0.1,
-        "omega6_g": 12.2,
-        "vitamin_a_re": 0,
-        "vitamin_d_ug": 0,
-        "vitamin_e_mg": 5,
-        "vitamin_b1_mg": 0.17,
-        "vitamin_b2_mg": 0.09,
-        "niacin_eq_mg": 16.3,
-        "vitamin_b6_mg": 0.58,
-        "folate_ug": 53,
-        "vitamin_b12_ug": 0,
-        "vitamin_c_mg": 0,
-        "calcium_mg": 37,
-        "iron_mg": 2.1,
-        "potassium_mg": 700,
-        "magnesium_mg": 180,
-        "zinc_mg": 3,
-        "selenium_ug": 3,
-        "copper_mg": 0.7,
-        "phosphorus_mg": 330,
-        "iodine_ug": 2
-      },
-      "serving_size_g": null,
-      "serving_label": null,
-      "allergens": "Peanøtter, Nøtter (kan inneholde), Cashewnøtter (kan inneholde), Hasselnøtter (kan inneholde), Mandler (kan inneholde)",
-      "contributor": "Henrik",
-      "sources": [
-        "Produktets etikett sammen med 99,4% av Mattilsynets næringsprofil. Regnestykket går opp om man antar at referansen er 100% ren."],
-      "verified_at": 1733600000
-        }
+        "id": "com:1",
+        "name": "Änglamark Peanøttsmør Crunchy",
+        "brand": "ÄNGLAMARK",
+        "ean": "7340011473039",
+        "values": {
+          "energy_kcal": 612,
+          "protein_g": 30,
+          "carbs_g": 9.5,
+          "fat_g": 49,
+          "sugars_g": 5.7,
+          "saturated_fat_g": 12,
+          "fiber_g": 6.6,
+          "salt_g": 0.6,
+          "omega3_g": 0.1,
+          "omega6_g": 12.2,
+          "vitamin_a_re": 0,
+          "vitamin_d_ug": 0,
+          "vitamin_e_mg": 5,
+          "vitamin_b1_mg": 0.17,
+          "vitamin_b2_mg": 0.09,
+          "niacin_eq_mg": 16.3,
+          "vitamin_b6_mg": 0.58,
+          "folate_ug": 53,
+          "vitamin_b12_ug": 0,
+          "vitamin_c_mg": 0,
+          "calcium_mg": 37,
+          "iron_mg": 2.1,
+          "potassium_mg": 700,
+          "magnesium_mg": 180,
+          "zinc_mg": 3,
+          "selenium_ug": 3,
+          "copper_mg": 0.7,
+          "phosphorus_mg": 330,
+          "iodine_ug": 2
+        },
+        "serving_size_g": null,
+        "serving_label": null,
+        "allergens": "Peanøtter, Nøtter (kan inneholde), Cashewnøtter (kan inneholde), Hasselnøtter (kan inneholde), 
+  Mandler (kan inneholde)",
+        "contributor": "Henrik",
+        "sources": [
+          "Produktets etikett sammen med 99,4% av Mattilsynets næringsprofil. Regnestykket går opp om man antar at 
+  referansen er 100% ren."
+        ],
+        "verified_at": 1733600000
+      }
     ]
- }
+  }
