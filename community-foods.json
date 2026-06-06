@@ -46,7 +46,7 @@
         "Produktets etikett sammen med 99,4% av Mattilsynets næringsprofil. Regnestykket går opp om man antar at referansen er 100% ren."],
       "verified_at": 1733600000
     },
-      {
+    {
       "id": "com2",
       "name": "Egg 12stk (S/M)",
       "brand": "Xtra",
@@ -88,6 +88,5 @@
       "contributor": "Henrik",
       "sources": ["Verdier samsvarer 1:1 med matvaretabellen"]
         }
-      }
     ],
 }
