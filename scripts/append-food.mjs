@@ -29,10 +29,15 @@ for (const r of REQUIRED) {
 
 let db = { version: 1, updated_at: 0, foods: [] };
 if (existsSync(FILE)) {
-  try { db = JSON.parse(readFileSync(FILE, 'utf8')); }
-  catch (e) { fail('community-foods.json er ugyldig JSON: ' + e.message); }
+  const raw = readFileSync(FILE, 'utf8').trim();
+  if (raw) {                                   // empty/whitespace file → keep the fresh default
+    try { db = JSON.parse(raw); }
+    catch (e) { fail('community-foods.json er ugyldig JSON: ' + e.message); }
+  }
 }
+if (typeof db !== 'object' || db === null) db = { version: 1, updated_at: 0, foods: [] };
 if (!Array.isArray(db.foods)) db.foods = [];
+if (typeof db.version !== 'number') db.version = 1;
 
 const now = Math.floor(Date.now() / 1000);
 const ean = String(data.ean ?? '').replace(/\D+/g, '') || null;
