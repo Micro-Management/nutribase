@@ -72,7 +72,7 @@
       "allergens": null,
       "contributor": "Henrik",
       "sources": [
-        "Justert makroer bittelitt fra matvaretabellen"
+        "Ørliten makro-justering (3kcal) fra Matvaretabellens \"Tunfisk i vann, hermetisk\"."
       ],
       "verified_at": 1780789363
     },
@@ -146,7 +146,7 @@
       "allergens": "Egg",
       "contributor": "Henrik",
       "sources": [
-        "Sammenkoblet med rått egg fra matvaretabellen"
+        "Referert til Matvaretabellens \"egg, rå\" for næringsinformasjon."
       ],
       "verified_at": 1780789719
     },
@@ -220,7 +220,7 @@
       "allergens": "Peanøtter, Nøtter (kan inneholde), Cashewnøtter (kan inneholde), Hasselnøtter (kan inneholde), Mandler (kan inneholde)",
       "contributor": "Henrik",
       "sources": [
-        "98,4% rent peanøttsmør, nedskalert til Mattilsynets referanse. Kilde: innholdsfoetegnelse"
+        "98,4% rent peanøttsmør skalert opp til Mattilsynets referanse (antas å være 100%)."
       ],
       "verified_at": 1780789750
     }
