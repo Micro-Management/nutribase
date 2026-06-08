@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1780934801,
+  "updated_at": 1780938427,
   "foods": [
     {
       "id": "com:1",
@@ -527,6 +527,30 @@
         "Småjustert et par makroer. Ellers 1:1 med matvaretabellen"
       ],
       "verified_at": 1780934801
+    },
+    {
+      "id": "com:8",
+      "name": "Optimal Vegan protein",
+      "brand": "Pureness",
+      "ean": "7350116311280",
+      "values": {
+        "energy_kcal": 389,
+        "protein_g": 82,
+        "carbs_g": 2,
+        "sugars_g": 0.7,
+        "fiber_g": 4.6,
+        "fat_g": 5.2,
+        "saturated_fat_g": 1.6,
+        "salt_g": 0.6
+      },
+      "serving_size_g": 25,
+      "serving_label": "5 scoops",
+      "allergens": null,
+      "contributor": "Henrik",
+      "sources": [
+        "Poduktets beskrivelse"
+      ],
+      "verified_at": 1780938427
     }
   ]
 }
