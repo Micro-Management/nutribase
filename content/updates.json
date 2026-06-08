@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "version": "1.4",
+      "date": "2026-06-08",
+      "title": "Tilsetningsstoffer og renhetsscore",
+      "notes": [
+        "Ny renhetsscore som kjenner igjen E-stoffer i ingredienslisten.",
+        "Skanning lar deg nå redigere produktet før du lagrer det.",
+        "Ny side for nyheter, anbefalinger og oppdateringer."
+      ]
+    },
+    {
+      "version": "1.3",
+      "date": "2026-05-20",
+      "title": "Fellesskapsdatabasen",
+      "notes": [
+        "Bidra med matvarer som mangler.",
+        "Søk treffer nå også på merke."
+      ]
+    }
+  ]
+}
