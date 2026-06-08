@@ -1,0 +1,72 @@
+name: Approve food submission
+
+# Label an issue "approved" → this parses it, updates community-foods.json, commits, and
+# closes the issue. A "correction"-labelled issue applies its field changes to the existing
+# food (apply-correction.mjs); any other issue is a new food (append-food.mjs: next com:N
+# id, deduped by barcode).
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  approve:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - id: process
+        continue-on-error: true
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          IS_CORRECTION: ${{ contains(github.event.issue.labels.*.name, 'correction') }}
+        run: |
+          if [ "$IS_CORRECTION" = "true" ]; then
+            node scripts/apply-correction.mjs
+          else
+            node scripts/append-food.mjs
+          fi
+
+      # Parsing/validation failed → comment why, drop the label, stop.
+      - name: Report failure
+        if: steps.process.outputs.error
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ERR: ${{ steps.process.outputs.error }}
+          NUM: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$NUM" --body "⚠️ Kunne ikke godkjenne automatisk: $ERR"
+          gh issue edit "$NUM" --remove-label approved
+          exit 1
+
+      - name: Commit
+        env:
+          FOOD_ID: ${{ steps.process.outputs.food_id }}
+          NUM: ${{ github.event.issue.number }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add community-foods.json
+          if git diff --staged --quiet; then echo "Ingen endringer å committe"; exit 1; fi
+          git commit -m "community: $FOOD_ID fra #$NUM"
+          git push
+
+      - name: Close issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FOOD_ID: ${{ steps.process.outputs.food_id }}
+          ACTION: ${{ steps.process.outputs.action }}
+          NUM: ${{ github.event.issue.number }}
+        run: |
+          gh label create verified --color 16a34a --description "Verifisert og lagt til" 2>/dev/null || true
+          gh issue edit "$NUM" --add-label verified --remove-label approved
+          gh issue comment "$NUM" --body "✅ Godkjent og $ACTION som \`$FOOD_ID\`. Takk for bidraget!"
+          gh issue close "$NUM"
