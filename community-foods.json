@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1780960268,
+  "updated_at": 1780960866,
   "foods": [
     {
       "id": "com:1",
@@ -629,7 +629,9 @@
       "sources": [
         "Sum av 84% gresk yogurt og 16% vanilje fra matvaretabellen"
       ],
-      "verified_at": 1780960224
+      "verified_at": 1780960866,
+      "ingredients": "84% Yoghurt (pasteurisert skummetmelk, pasteurisert fløte, yoghurtkultur), ), 16% vaniljeblanding ( sukker, modifisert stivelse (mais, potet), stabilisator: pektin, 0,28% vaniljeekstrakt, naturlig aroma, 0,07% vaniljefrø, surhetsregulerende middel: melkesyre).",
+      "origin_country": "Hellas"
     },
     {
       "id": "com:10",
