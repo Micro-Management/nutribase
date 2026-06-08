@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1780960241,
+  "updated_at": 1780960268,
   "foods": [
     {
       "id": "com:1",
@@ -306,8 +306,8 @@
         "-  Sukker, hvitt 8%*",
         "* mengde ikke oppgitt under innhold"
       ],
-      "verified_at": 1780947831,
-      "ingredients": "Vann, fullkorn av rug* (20%), fullkorn av hvete* (18%), hvetemel, sukker, hvetegluten, rapsolje, fermentert hvetemel, salt, havrefiber, gjær, vegetabilsk emulgeringsmiddel (mono- og diglyserider av fettsyrer, mono og diacetylvinsyreestere av mono og diglyserider av fettsyrer), hevemiddel (hjortetakksalt), maltmel (bygg). *Fullkornsmengde: 38%"
+      "verified_at": 1780960268,
+      "ingredients": "Vann, fullkorn av rug* (20%), fullkorn av hvete* (18%), hvetemel, sukker, hvetegluten, rapsolje, fermentert hvetemel, salt, havrefiber, gjær, vegetabilsk emulgeringsmiddel (mono- og diglyserider av fettsyrer (E471), mono og diacetylvinsyreestere av mono og diglyserider av fettsyrer (E472a), hevemiddel (hjortetakksalt (E503)), maltmel (bygg). *Fullkornsmengde: 38%"
     },
     {
       "id": "com:5",
