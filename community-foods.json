@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1780938427,
+  "updated_at": 1780946427,
   "foods": [
     {
       "id": "com:1",
@@ -550,7 +550,9 @@
       "sources": [
         "Poduktets beskrivelse"
       ],
-      "verified_at": 1780938427
+      "verified_at": 1780946427,
+      "ingredients": "Økologisk ert- og risprotein.",
+      "organic": 1
     }
   ]
 }
