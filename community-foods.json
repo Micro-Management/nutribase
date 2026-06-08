@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1780947831,
+  "updated_at": 1780959738,
   "foods": [
     {
       "id": "com:1",
@@ -74,7 +74,9 @@
       "sources": [
         "Ørliten makro-justering (3kcal) fra Matvaretabellens \"Tunfisk i vann, hermetisk\"."
       ],
-      "verified_at": 1780789363
+      "verified_at": 1780959738,
+      "ingredients": "Shipjack tunfisk (Katsuwonus pelamis) 75%, vann, salt",
+      "origin_country": "Det Indiske Hav"
     },
     {
       "id": "com:2",
