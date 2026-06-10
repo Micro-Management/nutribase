@@ -4,6 +4,12 @@ name: Approve food submission
 # closes the issue. A "correction"-labelled issue applies its field changes to the existing
 # food (apply-correction.mjs); any other issue is a new food (append-food.mjs: next com:N
 # id, deduped by barcode).
+#
+# Approving SEVERAL issues at once is safe: each run rebases onto the others' commits and
+# re-applies its change against the freshest community-foods.json (so com:N ids and barcode
+# dedupe stay correct), retrying on a push race. (We deliberately do NOT use a `concurrency`
+# group — with cancel-in-progress:false GitHub keeps only one pending run per group and
+# CANCELS the rest, which would silently drop batch approvals.)
 on:
   issues:
     types: [labeled]
@@ -18,24 +24,71 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # full history so rebasing onto the latest main + pushing is clean
 
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # Apply the change AND push it inside a re-sync/retry loop. This is what makes
+      # concurrent approvals work: on a push rejection we reset to the latest main and
+      # re-run the script, so it recomputes its com:N id / dedupe against the up-to-date
+      # file instead of clobbering a stale base (which used to fail all-but-one run).
       - id: process
         continue-on-error: true
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           IS_CORRECTION: ${{ contains(github.event.issue.labels.*.name, 'correction') }}
+          NUM: ${{ github.event.issue.number }}
+          BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          if [ "$IS_CORRECTION" = "true" ]; then
-            node scripts/apply-correction.mjs
-          else
-            node scripts/append-food.mjs
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          run_mutation() {
+            if [ "$IS_CORRECTION" = "true" ]; then
+              node scripts/apply-correction.mjs
+            else
+              node scripts/append-food.mjs
+            fi
+          }
+
+          pushed=""
+          for attempt in 1 2 3 4 5 6; do
+            # Start each attempt from the freshest main (picks up other just-approved foods).
+            git fetch --quiet origin "$BRANCH"
+            git reset --quiet --hard "origin/$BRANCH"
+
+            if ! run_mutation; then
+              # Deterministic validation/parse error — the script already wrote `error`.
+              # Retrying can't help, so stop and let "Report failure" handle it.
+              echo "Valideringsfeil i skriptet – prøver ikke på nytt."
+              exit 1
+            fi
+
+            git add community-foods.json
+            if git diff --staged --quiet; then
+              echo "error=Ingen endring å lagre (er den allerede lagt til?)." >> "$GITHUB_OUTPUT"
+              exit 1
+            fi
+            git commit --quiet -m "community: from #$NUM"
+
+            if git push origin "HEAD:$BRANCH"; then
+              pushed=1
+              echo "Lagret på forsøk $attempt."
+              break
+            fi
+            echo "Push avvist (forsøk $attempt) – synkroniserer og prøver igjen."
+            sleep $(( (RANDOM % 4) + attempt ))
+          done
+
+          if [ -z "$pushed" ]; then
+            echo "error=Klarte ikke å lagre etter flere forsøk pga. samtidige godkjenninger. Legg etiketten «approved» på igjen for å prøve på nytt." >> "$GITHUB_OUTPUT"
+            exit 1
           fi
 
-      # Parsing/validation failed → comment why, drop the label, stop.
+      # Parsing/validation/push failed → comment why, drop the label, mark the run failed.
       - name: Report failure
         if: steps.process.outputs.error
         env:
@@ -47,19 +100,8 @@ jobs:
           gh issue edit "$NUM" --remove-label approved
           exit 1
 
-      - name: Commit
-        env:
-          FOOD_ID: ${{ steps.process.outputs.food_id }}
-          NUM: ${{ github.event.issue.number }}
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add community-foods.json
-          if git diff --staged --quiet; then echo "Ingen endringer å committe"; exit 1; fi
-          git commit -m "community: $FOOD_ID fra #$NUM"
-          git push
-
       - name: Close issue
+        if: steps.process.outputs.food_id && !steps.process.outputs.error
         env:
           GH_TOKEN: ${{ github.token }}
           FOOD_ID: ${{ steps.process.outputs.food_id }}
