@@ -3,14 +3,21 @@
   "items": [
     {
       "tag": "Anbefalt",
-      "title": "Ekstra virgin olivenolje",
-      "description": "Rik på enumettet fett og polyfenoler. Et godt daglig fettvalg – se etter «ekstra virgin» på mørk flaske.",
+      "title": "Ekstra virgin olivenolje - Olivers & co",
+      "description": "\"Superfood\" rik på enumettet fett og polyfenoler. Klikk \"Les mer\" for anbefalte produkter.",
       "url": "https://oliviers-co.no/olivenolje"
     },
     {
-      "tag": "Tips",
-      "title": "Narkotika",
-      "description": "Støtter immunforsvaret og produktivitet"
+      "tag": "Anbefalt",
+      "title": "Tilskudd for alle - Optimal Nordic Nutrition",
+      "description": "Velstuderte tilskudd som de fleste vil kunne ta nytte av. Klikk \"Les mer\" for anbefalte produkter.",
+      "url": "https://optimalnordic.no/"
+    },
+    {
+      "tag": "Anbefalt",
+      "title": "Kollagen - Vild Nord",
+      "description": "Ikke bare et skjønnhetsprodukt. Kollagenproduksjonen synker allerede i 20-årene og er viktig for sunn aldring. Klikk \"Les mer\" for anbefalte produkter.",
+      "url": "https://www.vildnord.no/"
     }
   ]
 }
