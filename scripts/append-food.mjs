@@ -14,7 +14,13 @@ function out(key, value) {
 function fail(msg) { out('error', msg); console.error(msg); process.exit(1); }
 
 const body = process.env.ISSUE_BODY ?? '';
-const i = body.indexOf(OPEN);
+// SECURITY: parse the LAST machine block (the real one is written after all user free-text),
+// and refuse outright if more than one block is present — that only happens when someone tried
+// to smuggle a forged `<!-- NAERING_DATA … -->` block ahead of the genuine one. The Worker now
+// also strips the delimiter from free-text, so a clean submission always has exactly one.
+const blockCount = (body.match(/<!-- NAERING_DATA/g) || []).length;
+if (blockCount > 1) fail('Flere NAERING_DATA-blokker funnet – mulig manipulert innsending, håndteres manuelt.');
+const i = body.lastIndexOf(OPEN);
 const j = body.indexOf(CLOSE, i + 1);
 if (i < 0 || j < 0) fail('Fant ikke NAERING_DATA-blokken i issue-teksten.');
 

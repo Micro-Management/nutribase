@@ -27,7 +27,11 @@ const EMPTY = '(tomt)';
 function toNum(s) { const n = parseFloat(String(s).replace(',', '.')); return Number.isFinite(n) ? n : null; }
 
 const body = process.env.ISSUE_BODY ?? '';
-const i = body.indexOf(OPEN);
+// SECURITY: parse the LAST machine block and refuse if more than one is present (a forged
+// block smuggled via free-text). See append-food.mjs / the Worker's clampStr for the full note.
+const blockCount = (body.match(/<!-- NAERING_DATA/g) || []).length;
+if (blockCount > 1) fail('Flere NAERING_DATA-blokker funnet – mulig manipulert innsending, håndteres manuelt.');
+const i = body.lastIndexOf(OPEN);
 const j = body.indexOf(CLOSE, i + 1);
 if (i < 0 || j < 0) fail('Fant ikke NAERING_DATA-blokken i issue-teksten.');
 
