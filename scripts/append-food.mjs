@@ -60,6 +60,7 @@ const record = {
   ingredients: data.ingredients ?? null,
   origin_country: data.origin_country ?? null,
   organic: data.organic ?? null,
+  composition_note: typeof data.composition_note === 'string' ? data.composition_note : null,
   contributor: data.contributor ?? null,
   sources: Array.isArray(data.sources) ? data.sources : [],
   verified_at: now,
