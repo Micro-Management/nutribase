@@ -1,9 +1,10 @@
-// Parse an approved submission issue and append it to community-foods.json.
-// Run by .github/workflows/approve-food.yml; reads the issue body from ISSUE_BODY.
-// Writes outputs (food_id / action / error) to GITHUB_OUTPUT for the workflow.
+// Parse an approved submission issue and append it to the community database file.
+// Self-routing: a submission with `is_supplement: 1` in its machine block goes to
+// community-supplements.json with a `sup:N` id; everything else to community-foods.json
+// with `com:N`. Run by .github/workflows/approve-food.yml; reads the issue body from
+// ISSUE_BODY. Writes outputs (food_id / action / file / error) to GITHUB_OUTPUT.
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 
-const FILE = 'community-foods.json';
 const OPEN = '<!-- NAERING_DATA';
 const CLOSE = 'NAERING_DATA -->';
 const REQUIRED = ['energy_kcal', 'protein_g', 'carbs_g', 'fat_g'];
@@ -29,16 +30,28 @@ try { data = JSON.parse(body.slice(i + OPEN.length, j).trim()); }
 catch (e) { fail('Ugyldig JSON i NAERING_DATA: ' + e.message); }
 
 if (!data.name || typeof data.name !== 'string') fail('Mangler gyldig navn.');
-for (const r of REQUIRED) {
-  if (typeof data.values?.[r] !== 'number') fail(`Mangler makro: ${r}.`);
+
+// Supplements declare per-dose values (macros rarely apply); foods require the four macros.
+const isSupplement = data.is_supplement === 1 || data.is_supplement === true;
+if (isSupplement) {
+  if (!data.values || !Object.values(data.values).some(v => typeof v === 'number')) {
+    fail('Tilskuddet mangler næringsverdier.');
+  }
+} else {
+  for (const r of REQUIRED) {
+    if (typeof data.values?.[r] !== 'number') fail(`Mangler makro: ${r}.`);
+  }
 }
+
+const FILE = isSupplement ? 'community-supplements.json' : 'community-foods.json';
+const ID_PREFIX = isSupplement ? 'sup:' : 'com:';
 
 let db = { version: 1, updated_at: 0, foods: [] };
 if (existsSync(FILE)) {
   const raw = readFileSync(FILE, 'utf8').trim();
   if (raw) {                                   // empty/whitespace file → keep the fresh default
     try { db = JSON.parse(raw); }
-    catch (e) { fail('community-foods.json er ugyldig JSON: ' + e.message); }
+    catch (e) { fail(`${FILE} er ugyldig JSON: ` + e.message); }
   }
 }
 if (typeof db !== 'object' || db === null) db = { version: 1, updated_at: 0, foods: [] };
@@ -61,6 +74,10 @@ const record = {
   origin_country: data.origin_country ?? null,
   organic: data.organic ?? null,
   composition_note: typeof data.composition_note === 'string' ? data.composition_note : null,
+  is_supplement: isSupplement ? 1 : null,
+  nutrient_forms: data.nutrient_forms && typeof data.nutrient_forms === 'object' && !Array.isArray(data.nutrient_forms)
+    ? Object.fromEntries(Object.entries(data.nutrient_forms).filter(([, v]) => typeof v === 'string' && v.trim()))
+    : null,
   contributor: data.contributor ?? null,
   sources: Array.isArray(data.sources) ? data.sources : [],
   verified_at: now,
@@ -73,10 +90,10 @@ if (existingIdx >= 0) {
   db.foods[existingIdx] = record;
 } else {
   const maxN = db.foods.reduce((m, f) => {
-    const n = parseInt(String(f.id ?? '').replace(/^com:/, ''), 10);
+    const n = parseInt(String(f.id ?? '').replace(new RegExp(`^${ID_PREFIX}`), ''), 10);
     return Number.isFinite(n) && n > m ? n : m;
   }, 0);
-  record.id = `com:${maxN + 1}`;
+  record.id = `${ID_PREFIX}${maxN + 1}`;
   db.foods.push(record);
 }
 db.updated_at = now;
@@ -84,4 +101,5 @@ db.updated_at = now;
 writeFileSync(FILE, JSON.stringify(db, null, 2) + '\n');
 out('food_id', record.id);
 out('action', existingIdx >= 0 ? 'oppdatert' : 'lagt til');
-console.log(`${existingIdx >= 0 ? 'Updated' : 'Added'} ${record.id}: ${record.name}`);
+out('file', FILE);
+console.log(`${existingIdx >= 0 ? 'Updated' : 'Added'} ${record.id}: ${record.name} (${FILE})`);

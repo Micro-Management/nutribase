@@ -4,7 +4,6 @@
 // `changes` diff [{ key, label, from, to }] against an existing food (`food_id`).
 import { readFileSync, writeFileSync, existsSync, appendFileSync } from 'node:fs';
 
-const FILE = 'community-foods.json';
 const OPEN = '<!-- NAERING_DATA';
 const CLOSE = 'NAERING_DATA -->';
 
@@ -41,20 +40,22 @@ catch (e) { fail('Ugyldig JSON i NAERING_DATA: ' + e.message); }
 
 const foodId = String(data.food_id ?? '').trim();
 if (!foodId) fail('Rettelsen mangler food_id, kan ikke vite hvilken matvare den gjelder.');
-if (!foodId.startsWith('com:')) {
-  fail(`Rettelsen gjelder «${foodId}», som ikke er en fellesskapsmatvare (com:N) — må håndteres manuelt.`);
+// Route by id namespace: com:N → community-foods.json, sup:N → community-supplements.json.
+if (!foodId.startsWith('com:') && !foodId.startsWith('sup:')) {
+  fail(`Rettelsen gjelder «${foodId}», som ikke er en fellesskapsoppføring (com:N/sup:N) — må håndteres manuelt.`);
 }
+const FILE = foodId.startsWith('sup:') ? 'community-supplements.json' : 'community-foods.json';
 const changes = Array.isArray(data.changes) ? data.changes : [];
 if (!changes.length) fail('Rettelsen har ingen feltendringer å bruke (kun beskrivelse) — håndteres manuelt.');
 
-if (!existsSync(FILE)) fail('community-foods.json finnes ikke.');
+if (!existsSync(FILE)) fail(`${FILE} finnes ikke.`);
 let db;
 try { db = JSON.parse(readFileSync(FILE, 'utf8')); }
-catch (e) { fail('community-foods.json er ugyldig JSON: ' + e.message); }
-if (!db || !Array.isArray(db.foods)) fail('community-foods.json mangler foods-listen.');
+catch (e) { fail(`${FILE} er ugyldig JSON: ` + e.message); }
+if (!db || !Array.isArray(db.foods)) fail(`${FILE} mangler foods-listen.`);
 
 const food = db.foods.find(f => String(f.id) === foodId);
-if (!food) fail(`Fant ikke matvaren ${foodId} i community-foods.json.`);
+if (!food) fail(`Fant ikke oppføringen ${foodId} i ${FILE}.`);
 if (!food.values || typeof food.values !== 'object') food.values = {};
 
 const applied = [];
