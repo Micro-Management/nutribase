@@ -1,1 +1,29 @@
-
+{
+  "version": 1,
+  "updated_at": 1781219127,
+  "foods": [
+    {
+      "id": "sup:1",
+      "name": "NYCOPLUS FOLSYRE",
+      "brand": "Nycoplus",
+      "ean": "7038319039285",
+      "values": {
+        "folate_ug": 400
+      },
+      "serving_size_g": null,
+      "serving_label": "1 tablett",
+      "allergens": null,
+      "ingredients": "tabletthjelpestoffer (kalsiumfosfater, cellulose), overflatebehandlingsstoff (magnesiumsalter av fettsyrer), pteroylmonoglutaminsyre (vitamin).",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": {
+        "folate_ug": "Folsyre"
+      },
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781219127
+    }
+  ]
+}
