@@ -67,7 +67,9 @@ jobs:
               exit 1
             fi
 
-            git add community-foods.json
+            # Stage whichever community file the script wrote (foods OR supplements —
+            # append-food.mjs/apply-correction.mjs self-route on is_supplement / sup: ids).
+            git add -- $(ls community-foods.json community-supplements.json 2>/dev/null)
             if git diff --staged --quiet; then
               echo "error=Ingen endring å lagre (er den allerede lagt til?)." >> "$GITHUB_OUTPUT"
               exit 1
