@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781223840,
+  "updated_at": 1781339410,
   "foods": [
     {
       "id": "sup:1",
@@ -89,6 +89,29 @@
       "contributor": "Henrik",
       "sources": [],
       "verified_at": 1781223840
+    },
+    {
+      "id": "sup:3",
+      "name": "Betakaroten Dråper 30ml",
+      "brand": "Biopharma",
+      "ean": "7029121011798",
+      "values": {
+        "vitamin_a_re": 5000,
+        "vitamin_a_rae": 5,
+        "beta_carotene_ug": 10000
+      },
+      "serving_size_g": 0.5,
+      "serving_label": "17 dråper",
+      "allergens": null,
+      "ingredients": "MCT olje (kokos), naturlig betakaroten fra (Dunaliella salina)",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781339410
     }
   ]
 }
