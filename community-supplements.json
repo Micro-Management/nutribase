@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781344879,
+  "updated_at": 1781348855,
   "foods": [
     {
       "id": "sup:1",
@@ -209,6 +209,30 @@
       "contributor": "Henrik",
       "sources": [],
       "verified_at": 1781344879
+    },
+    {
+      "id": "sup:8",
+      "name": "Psyllium Husks SWANSON",
+      "brand": "Swanson Health Products",
+      "ean": "087614110776",
+      "values": {
+        "energy_kcal": 5,
+        "carbs_g": 1,
+        "fiber_g": 0.61,
+        "energy_kj": 21
+      },
+      "serving_size_g": null,
+      "serving_label": "1 kapsel",
+      "allergens": null,
+      "ingredients": "Vegan capsule (hypromellose).",
+      "origin_country": "USA",
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781348855
     }
   ]
 }
