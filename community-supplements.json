@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781340984,
+  "updated_at": 1781340987,
   "foods": [
     {
       "id": "sup:1",
@@ -139,6 +139,32 @@
       "contributor": "Henrik",
       "sources": [],
       "verified_at": 1781340984
+    },
+    {
+      "id": "sup:5",
+      "name": "Krill Oil Softgels 500mg",
+      "brand": "NootropicsDepot",
+      "ean": null,
+      "values": {
+        "energy_kcal": 5,
+        "fat_g": 0.5,
+        "omega3_g": 0.12,
+        "epa_g": 0.065,
+        "dha_g": 0.03,
+        "energy_kj": 21
+      },
+      "serving_size_g": null,
+      "serving_label": "1 softgel",
+      "allergens": null,
+      "ingredients": "Gelatin, Glycerin, Purified Water, Sorbitol",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781340987
     }
   ]
 }
