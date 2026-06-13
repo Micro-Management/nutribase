@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781340987,
+  "updated_at": 1781340993,
   "foods": [
     {
       "id": "sup:1",
@@ -165,6 +165,29 @@
       "contributor": "Henrik",
       "sources": [],
       "verified_at": 1781340987
+    },
+    {
+      "id": "sup:6",
+      "name": "Vitamin D3+K2+C",
+      "brand": "NootropicsDepot",
+      "ean": null,
+      "values": {
+        "vitamin_d_ug": 125,
+        "vitamin_c_mg": 225,
+        "vitamin_k_ug": 100
+      },
+      "serving_size_g": null,
+      "serving_label": "1 tablett",
+      "allergens": null,
+      "ingredients": "β-Cyclodextrin, Modified Starch, Sucrose, Maltodextrin, Vegetable Oil, Tocopherol, Silicon Dioxide (carriers), Microcrystalline Cellulose, Croscaramellose Sodium, Stearic Acid (binding agents)",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781340993
     }
   ]
 }
