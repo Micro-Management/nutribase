@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781340993,
+  "updated_at": 1781344879,
   "foods": [
     {
       "id": "sup:1",
@@ -188,6 +188,27 @@
       "contributor": "Henrik",
       "sources": [],
       "verified_at": 1781340993
+    },
+    {
+      "id": "sup:7",
+      "name": "Ferro-Retard 100mg depottabletter",
+      "brand": "Nycoplus",
+      "ean": "7046265955207",
+      "values": {
+        "iron_mg": 100
+      },
+      "serving_size_g": null,
+      "serving_label": "1 tablett",
+      "allergens": null,
+      "ingredients": "Virkestoff er jern(II)sulfat 300 mg tilsvarende 100 mg Fe++. Hjelpestoffer er laktose, fumarsyre, glycerolester, magnesiumstearat (E 572), jernoksid (E 172), hydroksypropylmetylcellulose (E 464), metylcellulose (E 461), makrogol 6000, titandioksid (E 171), fast parafin.",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": "Henrik",
+      "sources": [],
+      "verified_at": 1781344879
     }
   ]
 }
