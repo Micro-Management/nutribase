@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781369867,
+  "updated_at": 1781369869,
   "foods": [
     {
       "id": "sup:1",
@@ -260,6 +260,27 @@
       "contributor": null,
       "sources": [],
       "verified_at": 1781369867
+    },
+    {
+      "id": "sup:10",
+      "name": "Magnesium Glysinat 120stk",
+      "brand": "Optimal Nordic Nutrition",
+      "ean": "7090068340012",
+      "values": {
+        "magnesium_mg": 100
+      },
+      "serving_size_g": null,
+      "serving_label": "1 kapsel",
+      "allergens": null,
+      "ingredients": "Magnesium (magnesiumbisclysinat chelat), kapsel (hydroksypropylmetylcellulose), fortykningsmiddel (magnesiumsalter av fettsyrer), antiklumpemiddel (trikalsiumfosfater)",
+      "origin_country": "Norge",
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": 1,
+      "nutrient_forms": null,
+      "contributor": null,
+      "sources": [],
+      "verified_at": 1781369869
     }
   ]
 }
