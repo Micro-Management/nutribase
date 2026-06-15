@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1781550146,
+  "updated_at": 1781566386,
   "foods": [
     {
       "id": "com:1",
@@ -546,7 +546,19 @@
         "fiber_g": 4.6,
         "fat_g": 5.2,
         "saturated_fat_g": 1.6,
-        "salt_g": 0.6
+        "salt_g": 0.6,
+        "histidine_mg": 1.9,
+        "isoleucine_mg": 3.8,
+        "leucine_mg": 6.9,
+        "lysine_mg": 4.3,
+        "methionine_mg": 1.6,
+        "cysteine_mg": 1.6,
+        "phenylalanine_mg": 4.6,
+        "tyrosine_mg": 3.7,
+        "threonine_mg": 2.9,
+        "tryptophan_mg": 0.9,
+        "valine_mg": 4.5,
+        "glycine_mg": 3.4
       },
       "serving_size_g": 25,
       "serving_label": "5 scoops",
@@ -555,7 +567,7 @@
       "sources": [
         "Poduktets beskrivelse"
       ],
-      "verified_at": 1780946427,
+      "verified_at": 1781566386,
       "ingredients": "Økologisk ert- og risprotein.",
       "organic": 1
     },
