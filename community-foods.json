@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1782172722,
+  "updated_at": 1782257366,
   "foods": [
     {
       "id": "com:1",
@@ -11894,6 +11894,47 @@
       "contributor": null,
       "sources": [],
       "verified_at": 1782172722
+    },
+    {
+      "id": "com:155",
+      "name": "Vegan Protein Glorioso",
+      "brand": "Glorioso Super Nutrients",
+      "ean": "8437021878028",
+      "values": {
+        "energy_kcal": 399,
+        "protein_g": 3.8,
+        "carbs_g": 8.9,
+        "sugars_g": 0.8,
+        "fiber_g": 4.9,
+        "fat_g": 2.2,
+        "saturated_fat_g": 2.2,
+        "salt_g": 1.1,
+        "histidine_g": 1.8,
+        "isoleucine_g": 3.3,
+        "leucine_g": 6,
+        "lysine_g": 4.3,
+        "methionine_g": 1.2,
+        "cysteine_g": 1.5,
+        "phenylalanine_g": 3.9,
+        "tyrosine_g": 3,
+        "threonine_g": 2.52,
+        "tryptophan_g": 0.7,
+        "valine_g": 3.9,
+        "glycine_g": 3,
+        "energy_kj": 1669
+      },
+      "serving_size_g": 30,
+      "serving_label": "2 spiseskjeer",
+      "allergens": null,
+      "ingredients": "Protein Blend (Pea protein*, Sunflower protein*, Brown rice protein*, Pumpkin protein*), thickener: Guar gum*, DigeZyme® (Alpha-Amylase, Protease, Lactase, Lipase, Cellulase), natural flavouring, stevia (Steviol glycosides). *Organic Agriculture.",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": null,
+      "nutrient_forms": null,
+      "contributor": null,
+      "sources": [],
+      "verified_at": 1782257366
     }
   ]
 }
