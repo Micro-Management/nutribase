@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1782307796,
+  "updated_at": 1782363702,
   "foods": [
     {
       "id": "com:1",
@@ -11902,11 +11902,11 @@
       "ean": "8437021878028",
       "values": {
         "energy_kcal": 399,
-        "protein_g": 3.8,
-        "carbs_g": 8.9,
+        "protein_g": 75.2,
+        "carbs_g": 3.8,
         "sugars_g": 0.8,
         "fiber_g": 4.9,
-        "fat_g": 2.2,
+        "fat_g": 8.9,
         "saturated_fat_g": 2.2,
         "salt_g": 1.1,
         "histidine_g": 1.8,
@@ -11928,13 +11928,13 @@
       "allergens": null,
       "ingredients": "Protein Blend (Pea protein*, Sunflower protein*, Brown rice protein*, Pumpkin protein*), thickener: Guar gum*, DigeZyme® (Alpha-Amylase, Protease, Lactase, Lipase, Cellulase), natural flavouring, stevia (Steviol glycosides). *Organic Agriculture.",
       "origin_country": null,
-      "organic": 0,
+      "organic": 1,
       "composition_note": null,
       "is_supplement": null,
       "nutrient_forms": null,
       "contributor": null,
       "sources": [],
-      "verified_at": 1782257366
+      "verified_at": 1782363702
     },
     {
       "id": "com:156",
