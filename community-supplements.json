@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1783541784,
+  "updated_at": 1783543015,
   "foods": [
     {
       "id": "sup:1",
@@ -243,8 +243,8 @@
         "energy_kcal": 9,
         "fat_g": 1,
         "omega3_g": 600,
-        "epa_g": 300,
-        "dha_g": 200,
+        "epa_g": 0.3,
+        "dha_g": 0.2,
         "vitamin_d_ug": 10,
         "energy_kj": 38
       },
@@ -259,7 +259,7 @@
       "nutrient_forms": null,
       "contributor": null,
       "sources": [],
-      "verified_at": 1783541784
+      "verified_at": 1783543015
     },
     {
       "id": "sup:10",
