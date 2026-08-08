@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1786127797,
+  "updated_at": 1786198220,
   "foods": [
     {
       "id": "com:1",
@@ -11921,7 +11921,9 @@
         "tryptophan_g": 0.7,
         "valine_g": 3.9,
         "glycine_g": 3,
-        "energy_kj": 1669
+        "energy_kj": 1669,
+        "omega3_g": 0,
+        "omega6_g": 0
       },
       "serving_size_g": 30,
       "serving_label": "2 spiseskjeer",
@@ -11934,7 +11936,7 @@
       "nutrient_forms": null,
       "contributor": null,
       "sources": [],
-      "verified_at": 1782363702
+      "verified_at": 1786198220
     },
     {
       "id": "com:156",
