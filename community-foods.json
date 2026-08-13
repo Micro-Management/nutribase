@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1786198220,
+  "updated_at": 1786637712,
   "foods": [
     {
       "id": "com:1",
@@ -14971,6 +14971,34 @@
       "contributor": null,
       "sources": [],
       "verified_at": 1786127797
+    },
+    {
+      "id": "com:195",
+      "name": "Søkerfri tyggis med smak av mint/mynte",
+      "brand": "Extra",
+      "ean": "4009900484220",
+      "values": {
+        "energy_kcal": 156,
+        "protein_g": 0,
+        "carbs_g": 65,
+        "sugars_g": 0,
+        "fat_g": 0,
+        "saturated_fat_g": 0,
+        "salt_g": 0.06,
+        "energy_kj": 653
+      },
+      "serving_size_g": 1.4,
+      "serving_label": "1 tyggis",
+      "allergens": "Soja",
+      "ingredients": "Søkerfritt tuggummi med smak av mint/mynte. Ingredienser: Søtningssmiddel (xylitol 32%), sorbitol, aspartam (E951), fyllstoff (mannitol, mikrokrystallinsk cellulose), smakstilsetningsstoff (E621), fuktighetsbevarende middel (E422), emulgator (E470), fargestoffer (E171), overflatebehandlingsmiddel (E903), antioksydant (E321), glansmiddel (E901), fuktighetsbevarende middel (E420), søtningssmiddel (E950), søtningssmiddel (E955), søtningssmiddel (E965).",
+      "origin_country": null,
+      "organic": 0,
+      "composition_note": null,
+      "is_supplement": null,
+      "nutrient_forms": null,
+      "contributor": null,
+      "sources": [],
+      "verified_at": 1786637712
     }
   ]
 }
