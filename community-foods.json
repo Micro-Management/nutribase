@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": 1787726588,
+  "updated_at": 1788446067,
   "foods": [
     {
       "id": "com:1",
@@ -11923,7 +11923,38 @@
         "glycine_g": 3,
         "energy_kj": 1669,
         "omega3_g": 0,
-        "omega6_g": 0
+        "omega6_g": 0,
+        "vitamin_a_re": 0,
+        "vitamin_a_rae": 0,
+        "retinol_ug": 0,
+        "beta_carotene_ug": 0,
+        "vitamin_d_ug": 0,
+        "vitamin_e_mg": 0,
+        "vitamin_k_ug": 0,
+        "vitamin_b1_mg": 0,
+        "vitamin_b2_mg": 0,
+        "vitamin_b3_mg": 0,
+        "niacin_eq_mg": 0,
+        "vitamin_b5_mg": 0,
+        "vitamin_b6_mg": 0,
+        "biotin_ug": 0,
+        "folate_ug": 0,
+        "vitamin_b12_ug": 0,
+        "vitamin_c_mg": 0,
+        "calcium_mg": 0,
+        "phosphorus_mg": 0,
+        "magnesium_mg": 0,
+        "potassium_mg": 0,
+        "sodium_mg": 0,
+        "iron_mg": 0,
+        "zinc_mg": 0,
+        "copper_mg": 0,
+        "selenium_ug": 0,
+        "iodine_ug": 0,
+        "manganese_mg": 0,
+        "chromium_ug": 0,
+        "molybdenum_ug": 0,
+        "boron_mg": 0
       },
       "serving_size_g": 30,
       "serving_label": "2 spiseskjeer",
@@ -11936,7 +11967,7 @@
       "nutrient_forms": null,
       "contributor": null,
       "sources": [],
-      "verified_at": 1786198220
+      "verified_at": 1788446067
     },
     {
       "id": "com:156",
